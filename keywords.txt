@@ -1,0 +1,36 @@
+#######################################
+# Syntax Coloring Map for Hshopvn_GSM
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+HshopGSM	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init	KEYWORD2
+Re_init	KEYWORD2
+call	KEYWORD2
+sendsms	KEYWORD2
+deleteSms	KEYWORD2
+Setbaud	KEYWORD2
+read	KEYWORD2
+atcm	KEYWORD2
+holdcall	KEYWORD2
+set_timeWaitRespond	KEYWORD2
+setUserFunct	KEYWORD2
+handle	KEYWORD2
+getDataGSM	KEYWORD2
+checkConnect	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+at	LITERAL1
+crlf	LITERAL1
+atd	LITERAL1
+CountryCode	LITERAL1
