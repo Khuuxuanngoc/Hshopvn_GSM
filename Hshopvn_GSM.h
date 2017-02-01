@@ -22,7 +22,6 @@
 	#define hardwareSerial =>	TX_pin = 1, RX_pin = 0
 						Or
 	//#define hardwareSerial =>	TX_pin = 3, RX_pin = 2
-
 ************************************************************************/
 
 class HshopGSM{
