@@ -7,6 +7,7 @@
 #######################################
 
 HshopGSM	KEYWORD1
+Hshopvn_GSM	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -20,11 +21,15 @@ deleteSms	KEYWORD2
 Setbaud	KEYWORD2
 read	KEYWORD2
 atcm	KEYWORD2
-holdcall	KEYWORD2
+hangcall	KEYWORD2
+answer	KEYWORD2
 set_timeWaitRespond	KEYWORD2
 setUserFunct	KEYWORD2
 handle	KEYWORD2
 getDataGSM	KEYWORD2
+addMoney	KEYWORD2
+checkMoney	KEYWORD2
+checkData	KEYWORD2
 checkConnect	KEYWORD2
 
 #######################################
