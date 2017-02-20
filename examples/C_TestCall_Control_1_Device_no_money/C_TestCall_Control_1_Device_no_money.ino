@@ -44,7 +44,7 @@ void setup() {
   Serial.println("Start!!");
   
   // Init library:
-  HGSM.init(&UserFunction, 9600);
+  HGSM.init(&GSM_Ready, 9600);
 }
 
 
