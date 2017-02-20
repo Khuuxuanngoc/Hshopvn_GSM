@@ -26,19 +26,6 @@ HshopGSM HGSM = HshopGSM(&sim800ds);
 String Str_PhoneNum = "0938022500";
 
 int MyAnalogValue = 0;
-//
-void UserFunction() {
-  if (HGSM.getDataGSM() != "") {
-    Serial.println(HGSM.getDataGSM());
-    
-    if(HGSM.checkData("CHECK SENSOR")){
-      Serial.println("Detect my vailid sms command!");
-      
-      HGSM.sendsms(Str_PhoneNum, "Pin A0:" + String(MyAnalogValue));
-    }else;
-    
-  } else;
-}
 
 void setup() {
   // put your setup code here, to run once:
@@ -47,7 +34,7 @@ void setup() {
   Serial.println("Start!!");
 
   // Init Country code default: VietNam (+84)
-  HGSM.init(&UserFunction, 9600);
+  HGSM.init(&GSM_Ready, 9600);
 }
 
 
@@ -61,3 +48,15 @@ void loop() {
   
 }
 
+void GSM_Ready() {
+  if (HGSM.getDataGSM() != "") {
+//    Serial.println(HGSM.getDataGSM());  //show data comming
+    
+    if(HGSM.checkData("CHECK SENSOR")){
+      Serial.println("Detect my vailid sms command!");
+      
+      HGSM.sendsms(Str_PhoneNum, "Pin A0:" + String(MyAnalogValue));
+    }else;
+    
+  } else;
+}

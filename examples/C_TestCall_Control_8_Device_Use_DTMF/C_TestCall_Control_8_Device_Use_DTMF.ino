@@ -12,7 +12,7 @@ Decription: if a call (comming) is valid, it will answer and wait for DTMF signa
 
 IMPORTAN: - Make sure UPLOAD sketch "FirstUpLoad" first (Only 1 time), then run this sketch!
 ********  - Replace delay [origin] by *.delay [example: HGSM.delay(1000)]
-          - DO NOT use "delay" or "*.delay" in "UserFunction" [it seems to be interrupt when data is comming [.getDataGSM] from GSM]
+          - DO NOT use "delay" or "*.delay" in "GSM_Ready" [it seems to be interrupt when data is comming [.getDataGSM] from GSM]
 
 Tutorial:
 ********
@@ -48,7 +48,7 @@ void setup() {
   Serial.println("Start!!");
   
   // Init library:
-  HGSM.init(&UserFunction, 9600);
+  HGSM.init(&GSM_Ready, 9600);
 }
 
 void loop() {
@@ -56,11 +56,11 @@ void loop() {
   HGSM.handle();
 }
 
-void UserFunction() {
+void GSM_Ready() {
   if (HGSM.getDataGSM() != "") {
     Serial.println(HGSM.getDataGSM());  //show data comming
-    if(HGSM.checkData(1219012347)){
-//    if(HGSM.checkData(UL_PhoneNum)){
+    
+    if(HGSM.checkData(UL_PhoneNum)){
       Serial.println("Detect my vailid Number!");
       
       HGSM.answer();

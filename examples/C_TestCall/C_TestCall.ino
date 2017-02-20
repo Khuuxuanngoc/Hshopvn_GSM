@@ -8,7 +8,7 @@ Decription: Making a call to 0938022500 during 15s then hang up.
 
 IMPORTAN: - Make sure UPLOAD sketch "FirstUpLoad" first (Only 1 time), then run this sketch!
 ********  - Replace delay [origin] by *.delay [example: HGSM.delay(1000)]
-          - DO NOT use "delay" or "*.delay" in "UserFunction" [it seems to be interrupt when data is comming [.getDataGSM] from GSM]
+          - DO NOT use "delay" or "*.delay" in "GSM_Ready" [it seems to be interrupt when data is comming [.getDataGSM] from GSM]
 
 Tutorial:
 ********
@@ -27,11 +27,6 @@ HshopGSM HGSM = HshopGSM(&sim800ds);
 String Str_PhoneNum = "0938022500";
 unsigned long UL_PhoneNum = 938022500;
 
-void UserFunction() {
-  if (HGSM.getDataGSM() != "") {
-    Serial.println(HGSM.getDataGSM());
-  } else;
-}
 
 void setup() {
   // put your setup code here, to run once:
@@ -40,10 +35,10 @@ void setup() {
   Serial.println("Start!!");
 
   // Init Country code default: VietNam (+84)
-  HGSM.init(&UserFunction, 9600);
+  HGSM.init(&GSM_Ready, 9600);
 
   //or Set Country code.
-  //    HGSM.init(&UserFunction, 9600,"+84");
+  //    HGSM.init(&GSM_Ready, 9600,"+84");
 
   //Make the call with phone number as String
   HGSM.call(Str_PhoneNum);
@@ -66,3 +61,8 @@ void loop() {
   HGSM.handle();
 }
 
+void GSM_Ready() {
+  if (HGSM.getDataGSM() != "") {
+    Serial.println(HGSM.getDataGSM());  //show data comming
+  } else;
+}

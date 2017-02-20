@@ -27,13 +27,6 @@ HshopGSM HGSM = HshopGSM(&sim800ds);
 String Str_PhoneNum = "0938022500";
 unsigned long UL_PhoneNum = 938022500;
 
-//
-void UserFunction() {
-  if (HGSM.getDataGSM() != "") {
-    Serial.println(HGSM.getDataGSM());
-  } else;
-}
-
 void setup() {
   // put your setup code here, to run once:
   //Only show monitor
@@ -41,7 +34,7 @@ void setup() {
   Serial.println("Start!!");
 
   // Init Country code default: VietNam (+84)
-  HGSM.init(&UserFunction, 9600);
+  HGSM.init(&GSM_Ready, 9600);
 
 
   //Send SMS with phone number as String
@@ -57,3 +50,8 @@ void loop() {
   HGSM.handle();
 }
 
+void GSM_Ready() {
+  if (HGSM.getDataGSM() != "") {
+    Serial.println(HGSM.getDataGSM());  //show data comming
+  } else;
+}
