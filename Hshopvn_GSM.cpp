@@ -194,7 +194,9 @@ void HshopGSM::handle(){
 	
 	if(isUser == _no_act){
 		isUser = _tr_act;
-		p_UserFunct();
+		if(p_UserFunct != NULL){
+			p_UserFunct();
+		}else;
 		isUser = _no_act;
 		UserData = "";
 	}else;
